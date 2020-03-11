@@ -8,17 +8,12 @@ export default function Context(props) {
         var data = localStorage.getItem('BOOK')
         return data ? JSON.parse(data):[]; //data is null or not
     });
-
+ 
+// to store data in localStorage set BOOK variable
+    
     useEffect(() => {
         localStorage.setItem('BOOK',JSON.stringify(books));//book
     }, [books])
-
-    // const addBook =(title,author)=>{
-    //     setBooks([...books,{title,author,id: uuid()}])
-    // }
-    // const removeBook =(id)=>{
-    //     setBooks(books.filter(book=>(book.id !== id)))
-    // }
 
     return (
         <BookContext.Provider value={{books,dispatch}}>
